@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'haml'
+gem 'haml-rails'
 gem 'simple_form'
 
 # Use sqlite3 as the database for Active Record
@@ -32,6 +33,7 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'faker'
 end
 
 group :test do

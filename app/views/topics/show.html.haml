@@ -1,0 +1,10 @@
+%h1= @topic.title
+%p= raw "By #{link_to @topic.user.name, @topic.user}."
+%div= @topic.body
+
+- if signed_in?
+  %p= link_to "Reply", new_topic_reply_path(@topic)
+
+- @topic.replies.each do |reply|
+  %h3= raw "#{link_to reply.user.name, reply.user} says:" 
+  %p= reply.body

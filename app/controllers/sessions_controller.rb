@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:session][:name])
     if user && entered_correct_password?(user)
       sign_in(user)
-      redirect_to user
+      redirect_to user, notice: "How are you, #{user.name}?"
     else
       flash.now[:error] = "Invalid user/password combination."
       render :new

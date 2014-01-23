@@ -9,7 +9,7 @@ describe User do
     expect( build(:user, name: " // ") ).not_to be_valid
     expect( build(:user, name: "") ).not_to be_valid
     expect( build(:user, name: "     ") ).not_to be_valid
-    expect( build(:user, name: "aaa") ).not_to be_valid
+    expect( build(:user, name: "a") ).not_to be_valid
     expect( build(:user, name: "aaa" * 10) ).not_to be_valid
   end
 

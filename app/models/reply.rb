@@ -1,5 +1,5 @@
 class Reply < ActiveRecord::Base
-  belongs_to :post
+  belongs_to :topic
   belongs_to :user
   validates :body, presence: true
 end

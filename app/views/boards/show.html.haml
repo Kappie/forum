@@ -1,0 +1,12 @@
+%h1= @board.title
+
+- if signed_in?
+  %p= link_to "New topic", new_board_topic_path(@board)
+
+%ul
+- @board.topics.each do |topic|
+  %li
+    = link_to topic.title, board_topic_path(@board, topic)
+    \---
+    = raw "By #{link_to topic.user.name, topic.user}"
+

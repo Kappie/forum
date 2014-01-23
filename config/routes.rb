@@ -2,6 +2,15 @@ Forum::Application.routes.draw do
   root "boards#index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :boards, only: [:index, :show] do
+    resources :topics
+  end
+
+  resources :topics do
+    resources :replies, only: [:new, :create, :edit, :update, :destroy]
+  end
+
   get 'signup' => 'users#new', as: :signup
   get 'signin' => 'sessions#new', as: :signin
   delete 'signout' => 'sessions#destroy', as: :signout

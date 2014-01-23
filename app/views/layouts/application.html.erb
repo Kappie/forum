@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<% if signed_in? %>
-  <p>Hello, <%= current_user.name %>! You are signed in.
-<% end %>
+<%= render "layouts/header" %>
 
 <% flash.each do |key, message| %>
   <p class=<%= key %> ><%= message %>

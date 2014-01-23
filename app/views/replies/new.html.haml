@@ -1,0 +1,5 @@
+%h1 What's your reply?
+
+= simple_form_for [@topic, @topic.replies.new] do |f|
+  = f.input :body
+  = f.button :submit, "Post"
