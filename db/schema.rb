@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122215703) do
+ActiveRecord::Schema.define(version: 20140123115229) do
 
   create_table "boards", force: true do |t|
     t.string   "title"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20140122215703) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.string   "name"
+    t.string   "password_digest"
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
 
 end
