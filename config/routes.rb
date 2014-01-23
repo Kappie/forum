@@ -1,7 +1,10 @@
 Forum::Application.routes.draw do
   root "boards#index"
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   get 'signup' => 'users#new', as: :signup
+  get 'signin' => 'sessions#new', as: :signin
+  delete 'signout' => 'sessions#destroy', as: :signout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

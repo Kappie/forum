@@ -8,10 +8,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    user = User.new(user_params)
+    if user.save
       flash[:notice] = "Thanks for signing up. Have a look at your new profile."
-      redirect_to user_path(@user)
+      sign_in(user)
+      redirect_to user
     else
       render :new
     end

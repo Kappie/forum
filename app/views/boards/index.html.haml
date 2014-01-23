@@ -1,4 +1,11 @@
 %h1 The Forum
 
+%ul
+  %li= link_to "Sign up", signup_path
+  - if signed_in?
+    %li= link_to "Sign out", signout_path, method: :delete
+  - else
+    %li= link_to "Sign in", signin_path
+
 - @boards.each do |board|
   %h3= board.title

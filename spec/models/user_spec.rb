@@ -36,4 +36,9 @@ describe User do
     user = create(:user, password: "my_password", password_confirmation: "my_password")
     expect( user.authenticate("fails") ).to eq false
   end
+
+  it "has a remember_token upon save" do
+    user = create(:user)
+    expect(user.remember_token).to_not be_blank
+  end
 end
